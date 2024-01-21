@@ -1,0 +1,4 @@
+WRITE
+Hello
+:1234
+END

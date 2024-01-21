@@ -1,0 +1,29 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y g++ make ncat
+
+
+    - name: Run Serial tests
+      run: make test_serial
+
+    - name: Run Parallel tests with single thread
+      run: NUM_CLIENTS=1 make test_parallel
+    
+    - name: Run Parallel tests with 5 threads
+      run: NUM_CLIENTS=5 make test_parallel
+    
+    - name: Run Parallel tests with 100 threads
+      run: NUM_CLIENTS=100 make test_parallel

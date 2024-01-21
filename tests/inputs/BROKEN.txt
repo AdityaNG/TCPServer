@@ -1,0 +1,5 @@
+DELETE
+Hello
+COUNT
+READ
+Hello

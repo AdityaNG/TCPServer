@@ -1,0 +1,10 @@
+DELETE
+key
+READ
+key
+WRITE
+key
+:1234
+READ
+key
+END

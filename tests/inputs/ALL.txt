@@ -1,0 +1,12 @@
+DELETE
+Hello
+COUNT
+READ
+Hello
+WRITE
+Hello
+:1234
+READ
+Hello
+COUNT
+END
