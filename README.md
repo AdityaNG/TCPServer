@@ -24,6 +24,9 @@ The client will send one of the following messages to the server:
  - `DELETE <key>` - Delete the given key from the database.
  - `END` - End the connection.
 
+The database is a simple key-value store. Each key is a string, and each value is an string. The database is initialized to an empty state when the server starts.
+It may be implemented as a simple `std::map<std::string, std::string> KV_DATASTORE`, but the specifics are up to you.
+
 ## Sample Input & Output
 
 ### Write
@@ -46,7 +49,7 @@ END
 Following is an example `tests/inputs/READ.txt` to read a key value pair from the database.
 
 ```bash
-nc localhost 8080 < tests/inputs/READ.txt
+nc localhost 8080 < tests/inputs/READ.txt  # NULL if does not exist
 ```
 
 ```txt
@@ -85,6 +88,11 @@ END
 ### All Commands
 
 Following is an example `tests/inputs/ALL.txt`. Consider we are starting from an empty database and this is the first client connecting to the server.
+
+```bash
+nc localhost 8080 < tests/inputs/ALL.txt  # 0,1, etc.
+```
+
 
 ```txt
 DELETE
