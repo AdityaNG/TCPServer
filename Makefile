@@ -7,7 +7,7 @@ test_serial: serial
 	killall serial_server
 
 serial: src/serial/main.cpp
-	mkdir bin
+	mkdir -p bin
 	g++ -std=c++11 -o bin/serial_server src/serial/main.cpp 
 
 test_parallel: parallel
@@ -16,7 +16,7 @@ test_parallel: parallel
 	killall parallel_server
 
 parallel: src/parallel/main.cpp
-	mkdir bin
+	mkdir -p bin
 	g++ -std=c++11 -o bin/parallel_server -pthread -fno-stack-protector src/parallel/main.cpp
 
 clean:
